@@ -7,12 +7,14 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            /* background-color: #f8f9fa; */
+            background-image: url('./Image/1.gif');
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            margin: 0;
         }
         .card {
             background-color: #ffffff;
@@ -28,31 +30,31 @@
             font-size: 24px;
             margin-bottom: 20px;
         }
-        .sql-pre {
-            background-color: #007bff;
-            color: #ffffff;
-            padding: 20px;
+        .sql-pre, .mysql-pre {
+            background-color: #f8f9fa;
             border-radius: 8px;
+            padding: 20px;
             margin-bottom: 20px;
-            white-space: pre-wrap;
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.6;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        .sql-pre {
+            background-color: #007bff;
+            color: #ffffff;
+        }
         .mysql-pre {
-            background-color: #ffc107;
+            background-color: #2ac2f5;
             color: #212529;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            white-space: pre-wrap;
-            font-size: 18px;
-            line-height: 1.6;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .pre-title {
             font-weight: bold;
             margin-bottom: 10px;
+        }
+        .pre-code {
+            white-space: pre-wrap;
+            font-size: 16px;
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -62,82 +64,87 @@
 
         <div class="sql-pre">
             <div class="pre-title">SQL Commands</div>
-            SQL is a standard language for storing, 
-            manipulating and retrieving data in databases.
+            <div class="pre-code">
+                SQL is a standard language for storing, 
+                manipulating and retrieving data in databases.
 
-            Some of The Most Important SQL Commands:
+                Some of The Most Important SQL Commands:
 
-            SELECT - extracts data from a database
-            UPDATE - updates data in a database
-            DELETE - deletes data from a database
-            INSERT INTO - inserts new data into a database
-            CREATE DATABASE - creates a new database
-            ALTER DATABASE - modifies a database
-            CREATE TABLE - creates a new table
-            ALTER TABLE - modifies a table
-            DROP TABLE - deletes a table
-            CREATE INDEX - creates an index (search key)
-            DROP INDEX - deletes an index 
-            Where
-            Delete= DML Command Remove row from a table 
-            Drop = DDL command Delete Whole Table & DATABASE
+                SELECT - extracts data from a database
+                UPDATE - updates data in a database
+                DELETE - deletes data from a database
+                INSERT INTO - inserts new data into a database
+                CREATE DATABASE - creates a new database
+                ALTER DATABASE - modifies a database
+                CREATE TABLE - creates a new table
+                ALTER TABLE - modifies a table
+                DROP TABLE - deletes a table
+                CREATE INDEX - creates an index (search key)
+                DROP INDEX - deletes an index 
+            </div>
         </div>
 
         <div class="mysql-pre">
             <div class="pre-title">MySQL Commands</div>
+            <div class="pre-code" style="font-size: 28px;">
+                1. Show Database: show databases; 
 
-            1. Show Database: show databases; 
+                2. Create Database: create database databasename;
 
-            2. Create Database: create database databasename;
+                3. Delete Database: drop database databasename;
 
-            3. Delete Database: drop database databasename;
+                4. Switch Database: use databasename;
 
-            4. Switch Database: use databasename;
+                5. Check Current Db: select database();
+                
 
-            5. Check Current Db: select database();
+                Create Table In MySQL:
 
-            Create Table In MySQL:
+                6. Create Table: create table tablename (
+                                             column_name1 datatype,
+                                             column_name2 datatype,
+                                              name varchar(25),
+                                            class int,
+                                             roll_no int);
 
-            6. Create Table: create table tablename
-                        (column_name1 datatype,
-                        column_name2 datatype,
-                        name varchar(25),
-                        class int,
-                        roll_no int);
+                7. Show Table: show tables;
+                   desc tablename; (#describe whole table) 
+                   show columns from table_name;
 
-            7. Show Table: show tables;
-                        desc tablename; (#describe whole table) 
-                        show columns from table_name;
+                8. Delete table: drop table tablename;
 
-            8. Delete table: drop table tablename;
+                9. Insert Data Into Table: insert into table_name
+                   (col1, col2, col3, col4..)
+                   values(val1, val2, val3, val4...); 
 
-            9. Insert Data Into Table: insert into table_name
-                                    (col1, col2, col3, col4..)
-                                    values(val1, val2, val3, val4...); 
+                   :insert into table_name
+                   values(val1, val2, val3...);
+                   ##order must be same
 
-                                    :insert into table_name
-                                    values(val1, val2, val3...);
-                                    ##order must be same
+                10. See Table Data: select * from table_name;
 
-            10. See Table Data: select * from table_name;
+                11. Show Table Warning (Error): show warnings;
+                    Example: if we put int value as string it 
+                    enters 0 and show error
 
-            11. Show Table Warning (Error): show warnings;
-                Example: if we put int value as string it 
-                enters 0 and show error
+                    Delete column & ADD column
 
-                Delete column & ADD column
-
-            12 Delete table column: Alter table tablename Drop column column_name;
-            13 Add column in Table:  add table tablename  Add column_name varchar(55)4
+                12 Delete table column: Alter table tablename Drop column column_name;
+                13 Add column in Table:  add table tablename  Add column_name varchar(55)4
 
 
                         set Key 
-            14 set Primary key: create table tablename (
-                                student_id int not null 
-                                name varchar(55),
-                                age int, 
-                                primary key(student_id); 
-                                )
-            15 Auto_increment : autoincrement allows a unique number to be generated 
-                                automatically when a new record is inserted into a table 
-                                crea
+                14 set Primary key: create table tablename (
+                   student_id int not null 
+                   name varchar(55),
+                   age int, 
+                   primary key(student_id); 
+                   )
+                15 Auto_increment : autoincrement allows a unique number to be generated 
+                   automatically when a new record is inserted into a table 
+                   crea
+            </div>
+        </div>
+    </div>
+</body>
+</html>
